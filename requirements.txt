@@ -1,0 +1,8 @@
+pytesseract
+PyMuPDF
+numpy
+opencv-python
+pandas
+transformers
+sentence-transformers
+faiss-cpu
