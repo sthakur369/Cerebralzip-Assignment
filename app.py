@@ -83,9 +83,13 @@ def extract_text_from_pdf(pdf_path, lang='eng'):
 
 
 def clean_text(text):
-    # Remove unwanted characters and extra spaces
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+    # Remove unwanted characters and excess whitespace
+    # Retain only words and common punctuation
+    cleaned_text = re.sub(r'[^\w\s,.?!]+', '', text)
+    # Replace multiple spaces with a single space
+    cleaned_text = re.sub(r'\s+', ' ', cleaned_text)
+    return cleaned_text.strip()
+
 
 # Wrapper function to process each PDF
 
@@ -215,12 +219,6 @@ def chunk_text(text, max_length=1024):
 
     return chunks
 
-
-def clean_text(text):
-    # Remove unwanted characters and excess whitespace
-    cleaned_text = re.sub(r'[^\w\s,.?!]+', '', text)  # Retain only words and common punctuation
-    cleaned_text = re.sub(r'\s+', ' ', cleaned_text)  # Replace multiple spaces with a single space
-    return cleaned_text.strip()
 
 def generate_summary(relevant_text, max_length=130, min_length=30):
     if relevant_text:
