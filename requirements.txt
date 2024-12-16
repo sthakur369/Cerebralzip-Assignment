@@ -1,8 +1,8 @@
-pytesseract
-PyMuPDF
-numpy
-opencv-python
-pandas
 transformers
-sentence-transformers
-faiss-cpu
+nltk
+pyvis
+networkx
+matplotlib
+spacy
+wikipedia-api
+torch
